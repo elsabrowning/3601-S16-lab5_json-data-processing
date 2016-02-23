@@ -31,6 +31,10 @@ deleteThing(thing) {
 }
 }
 
+sortAlphabet(){
+  this.$http.sort();
+}
+
 angular.module('3601S16Lab5JsonDataProcessingApp')
   .controller('MainController', MainController);
 
