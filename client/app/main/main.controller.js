@@ -112,7 +112,7 @@ deleteThing(thing) {
      for(i=0; i < studentData.length; i++) {
        indivStudentSum = indivStudentCredits(studentData[i]);
        //console.log("These are the courses " + studentData[i].courses[courseIndex]);
-       if (indivStudentSum < 30) { //no freshmen in database currently, need ~50 to see more variation
+       if (indivStudentSum < 50) { //no freshmen in database currently, need ~50 to see more variation
          newData.push(studentData[i]);
        }
      }
