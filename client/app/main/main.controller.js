@@ -74,7 +74,7 @@
         return 'dateOfBirth';
       }
       else if (this.boxcheck == 3) {
-        return 'totalcredits';
+        return gpa;
       }
       if (this.boxcheck == 3) {
         return 'totalcredits';

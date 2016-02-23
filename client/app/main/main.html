@@ -28,7 +28,11 @@
         <li>
           <a href="#"
              tooltip="{{thing.info}}">
-            {{thing.lastName}}, {{thing.firstName}}, {{thing.dateOfBirth}}, {{thing.courses | gpa}}
+            {{thing.lastName}}, {{thing.firstName}}
+            </br>
+            Date of Birth: {{thing.dateOfBirth}}
+            </br>
+            {{thing.courses | gpa}}
             <button type="button" class="close" ng-click="main.deleteThing(thing)">&times;</button>
           </a>
         </li>

@@ -56,7 +56,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     };
 
     return function (data) {
-      return 'gpa filter: ' + calculateGPA(data);
+      return 'GPA: ' + calculateGPA(data);
     };
 
   });
