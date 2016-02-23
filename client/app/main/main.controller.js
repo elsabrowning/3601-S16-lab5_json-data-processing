@@ -33,6 +33,15 @@ deleteThing(thing) {
   this.$http.delete('/api/students/' + thing._id);
 }
 
+
+
+
+
+
+    test() {
+      return "hey";
+    };
+
     //sumCredits() {
     //  var totalcredits = 0;
     //  var i = 0;
@@ -41,6 +50,7 @@ deleteThing(thing) {
     //  }
     //  return totalcredits;
     //}
+
 
 
     orderName() {
@@ -73,7 +83,7 @@ deleteThing(thing) {
       if (this.boxcheck == 3) {
         return 'totalcredits';
       }
-      if (this.boxcheck == 4) {
+      if (this.boxcheck == 3) {
         return 'totalcredits';
       }
       else{
