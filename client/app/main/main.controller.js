@@ -29,10 +29,10 @@
       }
     }
 
-    deleteThing(thing)
-    {
-      this.$http.delete('/api/students/' + thing._id);
-    }
+deleteThing(thing) {
+  this.$http.delete('/api/students/' + thing._id);
+}
+}
 
     sumCredits() {
       var totalcredits = 0;
