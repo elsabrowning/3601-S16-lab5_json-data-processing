@@ -52,13 +52,31 @@ deleteThing(thing) {
       this.boxcheck=2;
       console.log("orderDOB");
     };
+    orderCredits() {
+      this.boxcheck=3;
+      console.log("orderCredits");
+    };
+    orderStatus() {
+      this.boxcheck=4;
+      console.log("orderStatus");
+    };
 
 
     orderByFunction()
     {
       if (this.boxcheck == 1) {
         return 'lastName';
-      } else{
+      }
+      if (this.boxcheck == 2) {
+        return 'dateOfBirth';
+      }
+      if (this.boxcheck == 3) {
+        return 'totalcredits';
+      }
+      if (this.boxcheck == 4) {
+        return 'totalcredits';
+      }
+      else{
         console.log("Time to cry about the order by");
       }
     };
