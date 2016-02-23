@@ -29,7 +29,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       } else if(str == "F") {
         return 0.00;
       } else {
-        return 0.00;
+        return "Error";
       }
 
     };
@@ -38,18 +38,20 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       console.log("calcualteGPA function is reached!");
       var value = 0;
       var totalCredits = 0;
-      for(var i=0; i < data.length; i++){
+      for(var i=0; i < data.length; i++) {
+
         var gradeNumber = gradeLetterConverter(data[i].grade);
-        value += (data[i].credits * gradeNumber);
-        console.log(data[i].credits)
-        totalCredits += gradeNumber;
+
+        if (gradeNumber !== "Error") {
+          value += (data[i].course.credits * gradeNumber);
+          totalCredits += data[i].course.credits;
+        }
 
       };
       if(totalCredits>0) {
-        ;
-        return (value * (1 / totalCredits));
+        return (value * (1 / totalCredits)).toFixed(2);
       } else {
-        return 0;
+        return "Not Available";
       }
     };
 
