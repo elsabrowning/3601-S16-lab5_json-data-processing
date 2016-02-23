@@ -32,15 +32,15 @@
 deleteThing(thing) {
   this.$http.delete('/api/students/' + thing._id);
 }
-}
 
-    sumCredits() {
-      var totalcredits = 0;
-      for (i = 0; i < length; i++) {
-        totalcredits += this.courses[i].course.credits
-      }
-      return totalcredits;
-    }
+    //sumCredits() {
+    //  var totalcredits = 0;
+    //  var i = 0;
+    //  for (i = 0; i < length; i++) {
+    //    totalcredits += this.courses[i].course.credits
+    //  }
+    //  return totalcredits;
+    //}
 
 
     orderName() {
@@ -63,9 +63,30 @@ deleteThing(thing) {
       }
     };
 
-    checkYear(student) {
-      //calculates student year
-
+    freshmenFunction(studentData){
+      var i = 0;
+      var courseIndex = 0;
+      var newData = [];
+      var newDataIndex = 0;
+      var indivStudentSum= 0;
+     for(i=0; i < studentData.length; i++) {
+       for (courseIndex = 0; courseIndex < studentData[i].courses.length; courseIndex++) {
+         if (studentData[i].courses[courseIndex].grade == "IP" || studentData[i].courses[courseIndex].grade == "F") {
+           //do nothing
+         } else {
+           indivStudentSum += studentData[i].courses[courseIndex].course.credits;
+         }
+         //console.log("These are the courses " + studentData[i].courses[courseIndex]);
+       }
+       if (indivStudentSum < 30) { //no freshmen in database currently, need ~50 to see more variation
+         newData.push(studentData[i]);
+         //newDataIndex++;
+       }
+       indivStudentSum = 0;
+     }
+     //calculates student year
+      console.log("These are our freshmen: " + newData);
+      return newData;
   }
 
   }
