@@ -29,18 +29,11 @@
       }
     }
 
-deleteThing(thing) {
-  this.$http.delete('/api/students/' + thing._id);
-}
+    deleteThing(thing) {
+      this.$http.delete('/api/students/' + thing._id);
+    }
 
 
-
-
-
-
-    test() {
-      return "hey";
-    };
 
     //sumCredits() {
     //  var totalcredits = 0;
