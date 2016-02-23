@@ -97,20 +97,19 @@
       return indivStudentSum;
     }
 
-    freshmenFunction(studentData){
+    freshmenFunction(studentDataArray){
+      console.log("These are our freshmen: ");
       var i = 0;
-      var courseIndex = 0;
       var newData = [];
       var indivStudentSum= 0;
-     for(i=0; i < studentData.length; i++) {
-       indivStudentSum = indivStudentCredits(studentData[i]);
+     for(i=0; i < studentDataArray.length; i++) {
+       indivStudentSum = indivTotalCredits(studentDataArray[i]);
        //console.log("These are the courses " + studentData[i].courses[courseIndex]);
        if (indivStudentSum < 50) { //no freshmen in database currently, need ~50 to see more variation
-         newData.push(studentData[i]);
+         newData.push(studentDataArray[i]);
        }
      }
      //calculates student year
-      console.log("These are our freshmen: " + newData);
       return newData;
   }
 
