@@ -4,6 +4,16 @@
     <p class="lead">Look at the things!</p>
   </div>
 </header>
+<div class="container">
+<div ng-controller="MainController">
+  <form name="myForm">
+    <select name="singleSelect" ng-model="data.singleSelect">
+      <option value="option-1"></option>
+      <option value="option-2">Option 1</option>
+    </select><br>
+  </form>
+</div>
+</div>
 
 <div class="container">
   <div class="row">
@@ -23,6 +33,7 @@
       </ul>
     </div>
   </div>
+
 
   <!--<form class="thing-form">-->
     <!--<label>Syncs in realtime across clients</label>-->
