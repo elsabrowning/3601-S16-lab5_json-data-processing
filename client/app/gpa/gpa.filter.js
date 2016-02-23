@@ -47,7 +47,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
           totalCredits += data[i].course.credits;
         }
 
-      };
+      }
       if(totalCredits>0) {
         return (value * (1 / totalCredits)).toFixed(2);
       } else {

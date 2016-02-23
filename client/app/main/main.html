@@ -8,8 +8,8 @@
 <div ng-controller="MainController">
   <form name="myForm">
     <select name="singleSelect" ng-model="data.singleSelect">
-      <option value="option-1"></option>
-      <option value="option-2" ng-click="main.freshmenFunction(main.awesomeThings)">Freshmen</option>
+      <option value="0"></option>
+      <option value="15" ng-select="main.freshmenFunction(main.awesomeThings)">Freshmen</option>
     </select><br>
   </form>
 </div>
@@ -24,7 +24,8 @@
         <button type="button" class="btn btn-primary" ng-click="main.orderCredits()">Completed Credits</button>
         <button type="button" class="btn btn-primary" ng-click="main.orderStatus()">Status</button>
       <h1 class="page-header">Students:</h1>
-      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | orderBy: main.orderByFunction()">
+      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | credits: data.singleSelect |
+      orderBy: main.orderByFunction()">
         <li>
           <a href="#"
              tooltip="{{thing.info}}">
