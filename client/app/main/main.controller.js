@@ -35,6 +35,11 @@
       this.$http.sort();
     }
 
+    checkYear(student) {
+      //calculates student year
+
+  }
+
   }
 
 angular.module('3601S16Lab5JsonDataProcessingApp')
