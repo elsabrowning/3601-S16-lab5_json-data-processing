@@ -4,17 +4,27 @@
     <p class="lead">Look at the things!</p>
   </div>
 </header>
+<div class="container">
+<div ng-controller="MainController">
+  <form name="myForm">
+    <select name="singleSelect" ng-model="data.singleSelect">
+      <option value="option-1"></option>
+      <option value="option-2" ng-click="main.freshmenFunction(main.awesomeThings)">Freshmen</option>
+    </select><br>
+  </form>
+</div>
+</div>
 
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
       <h2 class="page-header">Order by:</h2>
-        <button type="nameButton" class="btn btn-primary" ng-click={{}}>Name</button>
-        <button type="dobButton" class="btn btn-primary" >Date of Birth</button>
-        <button type="creditsButton" class="btn btn-primary" >Completed Credits</button>
-        <button type="statusButton" class="btn btn-primary" >Status</button>
+        <button type="button" class="btn btn-primary" ng-click="main.orderName()">Name</button>
+        <button type="button" class="btn btn-primary" ng-click="main.changeOrder(2)">Date of Birth</button>
+        <button type="button" class="btn btn-primary" ng-click="main.changeOrder(3)">Completed Credits</button>
+        <button type="button" class="btn btn-primary" ng-click="main.changeOrder(4)">Status</button>
       <h1 class="page-header">Students:</h1>
-      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | orderBy:'lastName'">
+      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | orderBy: main.orderByFunction()">
         <li>
           <a href="#" tooltip="{{thing.info}}">{{thing.lastName}}, {{thing.firstName}}
             <button type="button" class="close" ng-click="main.deleteThing(thing)">&times;</button>
@@ -23,6 +33,7 @@
       </ul>
     </div>
   </div>
+
 
   <!--<form class="thing-form">-->
     <!--<label>Syncs in realtime across clients</label>-->
