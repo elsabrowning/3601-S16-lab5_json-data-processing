@@ -9,6 +9,7 @@
       this.$http = $http;
       this.awesomeThings = [];
       this.boxcheck = 0;
+      this.credits = -1;
 
       $http.get('/api/students').then(response => {
         this.awesomeThings = response.data;
@@ -74,7 +75,7 @@
         return 'dateOfBirth';
       }
       else if (this.boxcheck == 3) {
-        return gpa;
+        return "gpa";
       }
       if (this.boxcheck == 3) {
         return 'totalcredits';
@@ -96,22 +97,6 @@
       }
       return indivStudentSum;
     }
-
-    freshmenFunction(studentDataArray){
-      console.log("These are our freshmen: ");
-      var i = 0;
-      var newData = [];
-      var indivStudentSum= 0;
-     for(i=0; i < studentDataArray.length; i++) {
-       indivStudentSum = indivTotalCredits(studentDataArray[i]);
-       //console.log("These are the courses " + studentData[i].courses[courseIndex]);
-       if (indivStudentSum < 50) { //no freshmen in database currently, need ~50 to see more variation
-         newData.push(studentDataArray[i]);
-       }
-     }
-     //calculates student year
-      return newData;
-  }
 
   }
 

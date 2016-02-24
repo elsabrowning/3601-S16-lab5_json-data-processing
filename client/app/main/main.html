@@ -7,9 +7,12 @@
 <div class="container">
 <div ng-controller="MainController">
   <form name="myForm">
-    <select name="singleSelect" ng-model="data.singleSelect">
-      <option value="0"></option>
-      <option value="15" ng-select="main.freshmenFunction(main.awesomeThings)">Freshmen</option>
+    <select name="singleSelect" ng-model="main.credits">
+      <option value="-1"></option>
+      <option value="30">Freshmen</option>
+      <option value="45">Sophomore</option>
+      <option value="90">Junior</option>
+      <option value="120">Senior</option>
     </select><br>
   </form>
 </div>
@@ -24,7 +27,7 @@
         <button type="button" class="btn btn-primary" ng-click="main.orderCredits()">Completed Credits</button>
         <button type="button" class="btn btn-primary" ng-click="main.orderStatus()">Status</button>
       <h1 class="page-header">Students:</h1>
-      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | creditCounter | orderBy: main.orderByFunction()">
+      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | creditCounter: main.credits | orderBy: main.orderByFunction()">
         <li>
           <a href="#"
              tooltip="{{thing.info}}">
@@ -33,8 +36,6 @@
             Date of Birth: {{thing.dateOfBirth}}
             </br>
             {{thing.courses | gpa}}
-            </br>
-            {{thing | creditCounter}}
             <button type="button" class="close" ng-click="main.deleteThing(thing)">&times;</button>
           </a>
         </li>
