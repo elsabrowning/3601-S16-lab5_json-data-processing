@@ -5,11 +5,14 @@
 
   class MainController {
 
-    constructor($http, $scope, socket) {
+    constructor($http, $scope, $filter, socket) {
       this.$http = $http;
       this.awesomeThings = [];
       this.boxcheck = 0;
       this.credits = -1;
+      this.order = 'lastName';
+
+      $scope.totalCreditsFilter = $filter('totalCredits');
 
       $http.get('/api/students').then(response => {
         this.awesomeThings = response.data;
@@ -58,12 +61,9 @@
     };
     orderCredits() {
       this.boxcheck=3;
-      console.log("orderCredits");
+      console.log("orderCredi totalCreditsts");
     };
-    orderMajor() {
-      this.boxcheck=4;
-      console.log("orderMajor");
-    };
+
 
 
     orderByFunction()
