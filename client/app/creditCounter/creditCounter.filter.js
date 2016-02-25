@@ -15,15 +15,22 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       return indivStudentSum;
     };
 
-    var freshmenFunction = function(studentData) {
-      if (indivTotalCredits(studentData) >= 50) { //no freshmen in database currently, need ~50 to see more variation
-        //do nothing
-      } else {
-        return studentData;
+    var freshmenFunction = function(studentDataArray, creditCount) {
+      if(creditCount == -1){
+        return studentDataArray;
       }
+       //no freshmen in database currently, need ~50 to see more variation
+      return studentDataArray.filter(function(student) {
+        if(creditCount == 120){
+          console.log("got to freshmenFunction if statement");
+          return (creditCount-30) <= indivTotalCredits(student);
+        } else {
+          return (creditCount - 30) <= indivTotalCredits(student) && indivTotalCredits(student) <= creditCount;
+        }
+        });
     };
 
-    return function (input) {
-      return freshmenFunction(input);
+    return function (input, credits) {
+      return freshmenFunction(input, credits);
     };
   });

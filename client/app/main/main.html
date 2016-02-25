@@ -4,15 +4,29 @@
     <p class="lead">Look at the things!</p>
   </div>
 </header>
+
 <div class="container">
 <div ng-controller="MainController">
   <form name="myForm">
-    <select name="singleSelect" ng-model="data.singleSelect">
-      <option value="0"></option>
-      <option value="15" ng-select="main.freshmenFunction(main.awesomeThings)">Freshmen</option>
+    <select name="singleSelect" ng-model="main.credits">
+      <option value="-1"></option>
+      <option value="30">Freshmen</option>
+      <option value="45">Sophomore</option>
+      <option value="90">Junior</option>
+      <option value="120">Senior</option>
     </select><br>
   </form>
 </div>
+</div>
+
+<div class="container">
+  <div ng-controller="MainController">
+    <form name="majorForm">
+      <select name="singleSelect" ng-model="main.major">
+        <option value="CSCI">CSCI</option>
+      </select><br>
+    </form>
+  </div>
 </div>
 
 <div class="container">
@@ -22,19 +36,20 @@
         <button type="button" class="btn btn-primary" ng-click="main.orderName()">Name</button>
         <button type="button" class="btn btn-primary" ng-click="main.orderDOB()">Date of Birth</button>
         <button type="button" class="btn btn-primary" ng-click="main.orderCredits()">Completed Credits</button>
-        <button type="button" class="btn btn-primary" ng-click="main.orderStatus()">Status</button>
       <h1 class="page-header">Students:</h1>
-      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | creditCounter | orderBy: main.orderByFunction()">
+      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | creditCounter: main.credits | orderBy: main.orderByFunction()">
         <li>
           <a href="#"
              tooltip="{{thing.info}}">
-            {{thing.lastName}}, {{thing.firstName}}
+            {{thing.lastName}}, {{thing.firstName}},
             </br>
-            Date of Birth: {{thing.dateOfBirth}}
+            Major(s): {{thing.major1}}, {{thing.major2}}
             </br>
-            {{thing.courses | gpa}}
+            Date of Birth: {{thing.dateOfBirth}},
             </br>
-            {{thing | creditCounter}}
+            {{thing.courses | gpa}},
+            </br>
+            {{thing.courses | totalCredits}},
             <button type="button" class="close" ng-click="main.deleteThing(thing)">&times;</button>
           </a>
         </li>
