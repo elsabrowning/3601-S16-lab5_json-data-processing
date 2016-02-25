@@ -5,21 +5,18 @@
   </div>
 </header>
 
-<h4>Student Status</h4>
-
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
 <div ng-controller="MainController">
   <form name="myForm">
     <select name="singleSelect" ng-model="main.credits">
-      <option value="-1">All</option>
+      <option value="-1"></option>
       <option value="30">Freshmen</option>
-      <option value="60">Sophomore</option>
+      <option value="45">Sophomore</option>
       <option value="90">Junior</option>
       <option value="120">Senior</option>
     </select><br>
   </form>
+</div>
 </div>
 
 <h4 class="list-inline">Test</h4>
@@ -47,6 +44,10 @@
           </select><br>
         </form>
       </div>
+<div>
+  <form>
+    <input type="checkbox" name="gpaCheck" onclick="main.showGPA='visible">Show GPA
+  </form>
 </div>
 </div>
 </div>
@@ -62,29 +63,36 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
       <h2 class="page-header">Order by:</h2>
         <button type="button" class="btn btn-primary" ng-click="main.order = 'lastName'">Name</button>
         <button type="button" class="btn btn-primary" ng-click="main.order = 'dateOfBirth'">Date of Birth</button>
         <button type="button" class="btn btn-primary" ng-click="main.order = totalCreditsFilter">Total Credits</button>
       <h1 class="page-header">Students:</h1>
+
+      <div ng-app id="ng-app">
       <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | orderBy: main.order | creditCounter: main.credits">
         <li>
-          <a href="#"
-             tooltip="{{thing.info}}">
-            {{thing.lastName}}, {{thing.firstName}},
-            </br>
-            Major(s): {{thing.major1}}, {{thing.major2}}
-            </br>
-            Date of Birth: {{thing.dateOfBirth}},
-            </br>
-            {{thing.courses | gpa}},
-            </br>
-            {{thing | totalCredits }},
-            <button type="button" class="close" ng-click="main.deleteThing(thing)">&times;</button>
+            <a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed">
+              {{thing.lastName}}, {{thing.firstName}}
+
+              <div id="gpaDiv" style="display:main.showGPA">
+                {{thing.courses | gpa}}
+              </div>
+
+            </a>
+            <a ng-show="collapsed">
+              Major(s): {{thing.major1}}, {{thing.major2}}
+              </br>
+              Date of Birth: {{thing.dateOfBirth}},
+              </br>
+              {{thing.courses | gpa}},
+              </br>
+              {{thing | totalCredits }},
           </a>
         </li>
       </ul>
+      </div>
     </div>
   </div>
 

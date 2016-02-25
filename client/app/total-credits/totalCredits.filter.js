@@ -40,9 +40,10 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
         var gradeNumber = gradeLetterConverter(data[i].grade);
 
-        if (gradeNumber !== "Error") {
+        if (gradeNumber !== "Error" || gradeNumber !== "F") {
           totalCredits += data[i].course.credits;
         }
+
 
       }
       return totalCredits;
