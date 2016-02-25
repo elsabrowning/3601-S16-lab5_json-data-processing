@@ -64,11 +64,11 @@
   <div class="row">
     <div class="col-lg-12">
       <h2 class="page-header">Order by:</h2>
-        <button type="button" class="btn btn-primary" ng-click="main.orderName()">Name</button>
-        <button type="button" class="btn btn-primary" ng-click="main.orderDOB()">Date of Birth</button>
-        <button type="button" class="btn btn-primary" ng-click="main.orderCredits()">Completed Credits</button>
+        <button type="button" class="btn btn-primary" ng-click="main.order = 'lastName'">Name</button>
+        <button type="button" class="btn btn-primary" ng-click="main.order = 'dateOfBirth'">Date of Birth</button>
+        <button type="button" class="btn btn-primary" ng-click="main.order = totalCreditsFilter">Total Credits</button>
       <h1 class="page-header">Students:</h1>
-      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | creditCounter: main.credits | orderBy: main.orderByFunction()">
+      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | orderBy: main.order | creditCounter: main.credits">
         <li>
           <a href="#"
              tooltip="{{thing.info}}">
@@ -80,7 +80,7 @@
             </br>
             {{thing.courses | gpa}},
             </br>
-            {{thing.courses | totalCredits}},
+            {{thing | totalCredits }},
             <button type="button" class="close" ng-click="main.deleteThing(thing)">&times;</button>
           </a>
         </li>

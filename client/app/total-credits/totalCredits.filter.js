@@ -51,7 +51,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
 
 
-    return function (data) {
-      return 'totalCredits: ' + countCredits(data);
+    return function (student) {
+      return countCredits(student.courses);
     };
   });
