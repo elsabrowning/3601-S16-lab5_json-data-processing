@@ -11,6 +11,7 @@
       this.boxcheck = 0;
       this.credits = -1;
       this.order = 'lastName';
+      this.showGPA = 'none';
 
       $scope.totalCreditsFilter = $filter('totalCredits');
 
@@ -48,37 +49,6 @@
     //  return totalcredits;
     //}
 
-
-
-    orderName() {
-      this.boxcheck=1;
-      console.log("orderName");
-    };
-
-    orderDOB() {
-      this.boxcheck=2;
-      console.log("orderDOB");
-    };
-    orderCredits() {
-      this.boxcheck=3;
-      console.log("orderCredi totalCreditsts");
-    };
-
-
-
-    orderByFunction()
-    {
-      if (this.boxcheck == 1) {
-        return 'lastName';
-      }
-      else if (this.boxcheck == 2) {
-        return 'dateOfBirth';
-      }
-      else if (this.boxcheck == 3) {
-        return 'totalCredits';
-      }
-    };
-
     indivTotalCredits(studentData) {
       var indivStudentSum = 0;
       var courseIndex = 0;
@@ -91,9 +61,6 @@
       }
       return indivStudentSum;
     }
-
-
-
 
 
   }

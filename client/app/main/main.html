@@ -19,6 +19,11 @@
 </div>
 </div>
 
+<div>
+  <form>
+    <input type="checkbox" name="gpaCheck" onclick="main.showGPA='visible">Show GPA
+  </form>
+</div>
 
 <div class="container">
   <div class="row">
@@ -32,7 +37,14 @@
       <div ng-app id="ng-app">
       <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | orderBy: main.order | creditCounter: main.credits">
         <li>
-            <a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed">{{thing.lastName}}, {{thing.firstName}}</a>
+            <a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed">
+              {{thing.lastName}}, {{thing.firstName}}
+
+              <div id="gpaDiv" style="display:main.showGPA">
+                {{thing.courses | gpa}}
+              </div>
+
+            </a>
             <a ng-show="collapsed">
               Major(s): {{thing.major1}}, {{thing.major2}}
               </br>
