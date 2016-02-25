@@ -60,9 +60,9 @@
       this.boxcheck=3;
       console.log("orderCredits");
     };
-    orderStatus() {
+    orderMajor() {
       this.boxcheck=4;
-      console.log("orderStatus");
+      console.log("orderMajor");
     };
 
 
@@ -75,13 +75,7 @@
         return 'dateOfBirth';
       }
       else if (this.boxcheck == 3) {
-        return "gpa";
-      }
-      if (this.boxcheck == 3) {
-        return 'totalcredits';
-      }
-      else{
-        console.log("Time to cry about the order by");
+        return 'totalCredits';
       }
     };
 

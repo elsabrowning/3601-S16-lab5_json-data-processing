@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('3601S16Lab5JsonDataProcessingApp')
-  .filter('gpa', function () {
+  .filter('totalCredits', function () {
 
     var gradeLetterConverter = function(str){
       if (str == "A") {
@@ -34,28 +34,24 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
 
     };
 
-    var calculateGPA = function(data){ //data.courses[i]
-      var value = 0;
+    var countCredits = function(data){ //data.courses[i]
       var totalCredits = 0;
       for(var i=0; i < data.length; i++) {
 
         var gradeNumber = gradeLetterConverter(data[i].grade);
 
         if (gradeNumber !== "Error") {
-          value += (data[i].course.credits * gradeNumber);
           totalCredits += data[i].course.credits;
         }
 
       }
-      if(totalCredits>0) {
-        return (value * (1 / totalCredits)).toFixed(2);
-      } else {
-        return "Not Available";
-      }
+      return totalCredits;
     };
+
+
+
 
     return function (data) {
-      return 'GPA: ' + calculateGPA(data);
+      return 'totalCredits: ' + countCredits(data);
     };
-
   });
