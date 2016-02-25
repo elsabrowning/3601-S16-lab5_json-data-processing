@@ -5,29 +5,60 @@
   </div>
 </header>
 
+<h4>Student Status</h4>
+
 <div class="container">
+  <div class="row">
+    <div class="col-lg-12">
 <div ng-controller="MainController">
   <form name="myForm">
     <select name="singleSelect" ng-model="main.credits">
-      <option value="-1"></option>
+      <option value="-1">All</option>
       <option value="30">Freshmen</option>
-      <option value="45">Sophomore</option>
+      <option value="60">Sophomore</option>
       <option value="90">Junior</option>
       <option value="120">Senior</option>
     </select><br>
   </form>
 </div>
-</div>
 
-<div class="container">
-  <div ng-controller="MainController">
-    <form name="majorForm">
-      <select name="singleSelect" ng-model="main.major">
-        <option value="CSCI">CSCI</option>
-      </select><br>
-    </form>
-  </div>
+<h4 class="list-inline">Test</h4>
+      <div ng-controller="MainController">
+        <form name="myForm">
+          <select name="singleSelect" ng-model="main.classIP">
+            <option value="-1">All</option>
+            <option value="Models of Computing Systems">Models of Computing Systems</option>
+            <option value="Software Design and Development">Software Design and Development</option>
+            <option value="PreCalculus I: Functions">PreCalculus I: Functions</option>
+            <option value="Calculus II">Calculus II</option>
+            <option value="Data Structures">Data Structures</option>
+            <option value="Theory: Quantum Computing">Theory: Quantum Computing</option>
+            <option value="Beginning French I">Beginning French I</option>
+            <option value="Intermediate French I">Intermediate French I</option>
+            <option value="Intermediate French II">Intermediate French II</option>
+            <option value="Reading and Analysis of Texts">Reading and Analysis of Texts</option>
+            <option value="Fundamentals of Genetics, Evolution, and Development">Software Design and Development</option>
+            <option value="Introduction to Film Studies">Introduction to Film Studies</option>
+            <option value="Beginning Ceramics">Beginning Ceramics</option>
+            <option value="Foundations of Computer Science">Foundations of Computer Science</option>
+            <option value="PreCalculus II: Trigonometry">PreCalculus II: Trigonometry</option>
+            <option value="Beginning French I">Beginning French I</option>
+            <option value="Intermediate French I">Intermediate French I</option>
+          </select><br>
+        </form>
+      </div>
 </div>
+</div>
+</div>
+<!--<div class="container">-->
+  <!--<div ng-controller="MainController">-->
+    <!--<form name="majorForm">-->
+      <!--<select name="singleSelect" ng-model="main.major">-->
+        <!--<option value="CSCI">CSCI</option>-->
+      <!--</select><br>-->
+    <!--</form>-->
+  <!--</div>-->
+<!--</div>-->
 
 <div class="container">
   <div class="row">
