@@ -49,19 +49,17 @@
     //  return totalcredits;
     //}
 
-    indivTotalCredits(studentData) {
-      var indivStudentSum = 0;
-      var courseIndex = 0;
-      for (courseIndex = 0; courseIndex < studentData.courses.length; courseIndex++) {
-        if (studentData.courses[courseIndex].grade == "IP" || studentData.courses[courseIndex].grade == "F") {
-          //do nothing
-        } else {
-          indivStudentSum += studentData.courses[courseIndex].course.credits;
-        }
-      }
-      return indivStudentSum;
+    testFunction() {
+    var options = [1, 2, 3, 4, 5, 6];
+    var i =0;
+    for (i = 0; i < options.length; i++) {
+      var opt = options[i];
+      var el = document.createElement("option");
+      el.textContent = opt;
+      el.value = opt;
+      document.getElementById("selectNumber").appendChild(el);
     }
-
+  }
 
   }
 

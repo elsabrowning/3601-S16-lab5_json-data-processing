@@ -50,9 +50,21 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     };
 
 
+    var indivTotalCredits = function(studentData) {
+      var indivStudentSum = 0;
+      var courseIndex = 0;
+      for (courseIndex = 0; courseIndex < studentData.courses.length; courseIndex++) {
+        if (studentData.courses[courseIndex].grade == "IP" || studentData.courses[courseIndex].grade == "F") {
+          //do nothing
+        } else {
+          indivStudentSum += studentData.courses[courseIndex].course.credits;
+        }
+      }
+      return indivStudentSum;
+    };
 
 
     return function (student) {
-      return countCredits(student.courses);
+      return "Total Credits: " + indivTotalCredits(student);
     };
   });
