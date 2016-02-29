@@ -12,6 +12,7 @@
       this.allSubjectArray = [];
       this.classArray = [];
       this.subjectClassArray = [];
+      this.overallArray = [];
       this.credits;
       this.order = 'lastName';
       this.showGPA = 'none';
@@ -92,8 +93,12 @@
               this.classArray.push(studentDataArray[j].courses[k].course.name)
             }
           }
-          this.subjectClassArray
         }
+        this.subjectClassArray.push(this.allSubjectArray[i]);
+        this.subjectClassArray.push(this.classArray);
+        this.classArray = [];
+        this.overallArray.push(this.subjectClassArray);
+        this.subjectClassArray = [];
       }
     };
 

@@ -16,7 +16,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     };
 
     var freshmenFunction = function(studentDataArray, creditCount) {
-      if(creditCount == -1){
+      if(creditCount == null){
         return studentDataArray;
       }
        //no freshmen in database currently, need ~50 to see more variation
