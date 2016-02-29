@@ -16,14 +16,14 @@
 #sidebar
 {
   float: left;
-  width: 250px;
+  width: 10%;
   min-height: 100%;
   margin-left: 1%;
 }
 
 #main
 {
-  float: left;
+  float: center;
 }
 
 .hero-unit {
