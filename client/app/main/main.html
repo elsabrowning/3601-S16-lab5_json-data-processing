@@ -18,24 +18,13 @@
   </form>
 
 <h4 class="list-inline" >Subject</h4>
-      <div ng-controller="MainController">
-        <form name="myForm">
-          <select id="selectNumber">
-            <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)">{{thing}}</option>
-          </select>
-        </form>
-      </div>
-<div>
-  </br>
-
-  <h4>Choose a Number</h4>
-  <form name="myForm">
-    <select id="selectNumber">
-      <option>Choose a number</option>
-    </select>
-  </form>
-
-  </br>
+  <div ng-controller="MainController">
+    <form name="myForm">
+      <select id="selectNumber">
+        <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)">{{thing}}</option>
+      </select>
+    </form>
+  </div>
 
   <h4>Show Options</h4>
   <form>
