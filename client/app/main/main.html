@@ -34,7 +34,8 @@
 
   <h4>Show Options</h4>
   <form>
-    <input type="checkbox" name="gpaCheck" ng-click="showgpa=!showgpa"> Show GPA
+    <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="showgpa=!showgpa">Show GPA</button>
+    <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="showcredits=!showcredits">Show Credits</button>
   </form>
 
 
@@ -57,13 +58,7 @@
 <div class="container" id="main">
   <div class="row">
     <div class="col-md-12">
-
-
-
       <h1 class="page-header">Students:</h1>
-
-
-
       <div ng-app id="ng-app">
       <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | orderBy: main.order | creditCounter: main.credits">
         <li>
@@ -73,6 +68,11 @@
               <div id="gpaDiv"  ng-show="showgpa">
                 {{thing.courses | gpa}}
               </div>
+
+              <div id="gpaDiv"  ng-show="showcredits">
+                {{thing | totalCredits}}
+              </div>
+
             </a>
             <a ng-show="collapsed">
               Major(s): {{thing.major1}}, {{thing.major2}}
