@@ -16,6 +16,7 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
     };
 
     var freshmenFunction = function(studentDataArray, creditCount) {
+      console.log(creditCount);
       if(creditCount == -1){
         return studentDataArray;
       }

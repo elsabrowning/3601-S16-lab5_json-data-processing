@@ -13,6 +13,19 @@
   letter-spacing: -1px;
 }
 
+#sidebar
+{
+  float: left;
+  width: 250px;
+  min-height: 100%;
+  margin-left: 1%;
+}
+
+#main
+{
+  float: left;
+}
+
 .hero-unit {
   position: relative;
   padding: 30px 15px;
