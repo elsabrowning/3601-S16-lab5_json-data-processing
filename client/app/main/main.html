@@ -77,11 +77,13 @@
             <a ng-show="collapsed">
               Major(s): {{thing.major1}}, {{thing.major2}}
               </br>
-              Date of Birth: {{thing.dateOfBirth}},
+              Date of Birth: {{thing.dateOfBirth}}
               </br>
-              {{thing.courses | gpa}},
+              {{thing.courses | gpa}}
               </br>
-              {{thing | totalCredits }},
+              {{thing | totalCredits }}
+              </br>
+              {{thing | courseList}}
           </a>
         </li>
       </ul>
