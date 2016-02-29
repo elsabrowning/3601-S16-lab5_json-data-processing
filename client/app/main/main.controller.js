@@ -11,7 +11,7 @@
       this.allCoursesArray =[];
       this.allSubjectArray = [];
       this.classArray = [];
-      this.credits;
+      this.credits = -1;
       this.order = 'lastName';
       this.showGPA = 'none';
 
@@ -88,7 +88,7 @@
         for(j = 0; j < sudentDataArray.length; j++) {
           for (k = 0; k < studentDataArray[j].courses.length; k++) {
             if (studentDataArray[j].courses[k].course.subject == allSubjectArray[i] && checkSubjectClass(studentDataArray[j].courses[k].course.name)) {
-              
+
             }
           }
         }

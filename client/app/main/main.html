@@ -5,8 +5,13 @@
 </header>
 
 <div id="sidebar">
-  <h4>Class Option</h4>
 
+  <h4 class="page-header">Order by:</h4>
+  <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="main.order = 'lastName'">Name</button>
+  <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="main.order = 'dateOfBirth'">Date of Birth</button>
+  <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="main.order = totalCreditsFilter">Total Credits</button>
+
+  <h4>Class Option</h4>
   <form name="myForm">
     <select name="singleSelect" ng-model="main.credits">
       <option value="-1">All</option>
@@ -17,19 +22,21 @@
     </select>
   </form>
 
-<h4>Subject</h4>
-  <div ng-controller="MainController">
-    <form name="myForm">
-      <select id="selectNumber">
-        <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)">{{thing}}</option>
-      </select>
-    </form>
-  </div>
+  <h4>Subject</h4>
+    <div ng-controller="MainController">
+      <form name="myForm">
+       <select id="selectNumber">
+         <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)">{{thing}}</option>
+        </select>
+      </form>
+    </div>
 
   <h4>Show Options</h4>
   <form>
     <input type="checkbox" name="gpaCheck" ng-click="showgpa=!showgpa"> Show GPA
   </form>
+
+
 
 </div>
 
@@ -49,10 +56,9 @@
 <div class="container" id="main">
   <div class="row">
     <div class="col-md-12">
-      <h2 class="page-header">Order by:</h2>
-        <button type="button" class="btn btn-primary" ng-click="main.order = 'lastName'">Name</button>
-        <button type="button" class="btn btn-primary" ng-click="main.order = 'dateOfBirth'">Date of Birth</button>
-        <button type="button" class="btn btn-primary" ng-click="main.order = totalCreditsFilter">Total Credits</button>
+
+
+
       <h1 class="page-header">Students:</h1>
 
 
