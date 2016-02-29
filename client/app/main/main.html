@@ -17,6 +17,15 @@
     </select>
   </form>
 
+<h4 class="list-inline" >Subject</h4>
+      <div ng-controller="MainController">
+        <form name="myForm">
+          <select id="selectNumber">
+            <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)">{{thing}}</option>
+          </select>
+        </form>
+      </div>
+<div>
   </br>
 
   <h4>Choose a Number</h4>
