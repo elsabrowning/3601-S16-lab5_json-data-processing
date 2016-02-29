@@ -12,6 +12,8 @@
       this.allSubjectArray = [];
       this.classArray = [];
       this.credits = -1;
+      this.subjectClassArray = [];
+      this.overallArray = [];
       this.order = 'lastName';
       this.showGPA = 'none';
 
@@ -88,10 +90,15 @@
         for(j = 0; j < sudentDataArray.length; j++) {
           for (k = 0; k < studentDataArray[j].courses.length; k++) {
             if (studentDataArray[j].courses[k].course.subject == allSubjectArray[i] && checkSubjectClass(studentDataArray[j].courses[k].course.name)) {
-
+              this.classArray.push(studentDataArray[j].courses[k].course.name)
             }
           }
         }
+        this.subjectClassArray.push(this.allSubjectArray[i]);
+        this.subjectClassArray.push(this.classArray);
+        this.classArray = [];
+        this.overallArray.push(this.subjectClassArray);
+        this.subjectClassArray = [];
       }
     };
 
