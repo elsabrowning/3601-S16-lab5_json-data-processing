@@ -74,11 +74,11 @@
             <a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed">
               {{thing.lastName}}, {{thing.firstName}}
 
-              <div id="gpaDiv"  ng-show="showgpa">
+              <div id="gpaDiv"  ng-show="showgpa && !collapsed">
                 {{thing.courses | gpa}}
               </div>
 
-              <div id="gpaDiv"  ng-show="showcredits">
+              <div id="gpaDiv"  ng-show="showcredits && !collapsed">
                 {{thing | totalCredits}}
               </div>
 
@@ -88,9 +88,13 @@
               </br>
               Date of Birth: {{thing.dateOfBirth}}
               </br>
-              {{thing.courses | gpa}}
+              <div id="gpaDiv"  ng-show="showgpa">
+                {{thing.courses | gpa}}
+              </div>
               </br>
-              {{thing | totalCredits }}
+              <div id="gpaDiv"  ng-show="showcredits">
+                {{thing | totalCredits}}
+              </div>
               </br>
               {{thing | courseList}}
           </a>
