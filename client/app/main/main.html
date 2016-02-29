@@ -26,11 +26,20 @@
   <h4>Subject</h4>
     <div ng-controller="MainController">
       <form name="myForm">
-       <select id="selectNumber">
-         <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)">{{thing}}</option>
+       <select id="selectNumber" ng-model = "main.subject">
+         <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)" value = {{thing}}>{{thing}}</option>
         </select>
       </form>
     </div>
+
+  <h4>Course Name</h4>
+  <div ng-controller="MainController">
+    <form name="myForm">
+      <select id="selectNumber">
+        <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)" | classFilter: main.subject>{{thing}}</option>
+      </select>
+    </form>
+  </div>
 
   <h4>Show Options</h4>
   <form>
