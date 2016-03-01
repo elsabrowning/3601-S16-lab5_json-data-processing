@@ -10,6 +10,7 @@
       this.awesomeThings = [];
       this.allCoursesArray =[];
       this.allMajorsArray =[];
+      this.allMajorsArray2 =[];
       this.allSubjectArray = [];
       this.classArray = [];
       this.credits = -1;
@@ -18,7 +19,7 @@
       this.order = 'lastName';
       this.showGPA = 'none';
       this.subject = null;
-      this.major = null;
+      this.major;
 
       $scope.totalCreditsFilter = $filter('totalCredits');
 
@@ -87,22 +88,40 @@
 
     majorArrayMaker(studentDataArray){
       var i = 0;
-      console.log("Student Data Array reached!");
       for(i = 0; i < studentDataArray.length; i++){
 
         if (this.checkMajor(studentDataArray[i].major1)) {
           this.allMajorsArray.push(studentDataArray[i].major1);
-          console.log(this.allMajorsArray);
+
         }
 
         if (this.checkMajor(studentDataArray[i].major2)) {
           this.allMajorsArray.push(studentDataArray[i].major2);
-          console.log(this.allMajorsArray);
+
         }
       }
+
       return this.allMajorsArray;
-      console.log(this.allMajorsArray);
     };
+
+    allArrayMaker(studentDataArray){
+      var i = 0;
+      for(i = 0; i < studentDataArray.length; i++){
+
+        if (this.checkMajorall(studentDataArray[i].major1)) {
+          this.allMajorsArray2.push(studentDataArray[i].major1);
+
+        }
+
+        if (this.checkMajorall(studentDataArray[i].major2)) {
+          this.allMajorsArray2.push(studentDataArray[i].major2);
+        }
+      }
+      console.log(this.allMajorsArray2);
+      return this.allMajorsArray2;
+
+    };
+
 
     linkingSubjectClass(studentDataArray) {
       var i = 0;
@@ -170,30 +189,21 @@
 
     };
 
+    checkMajorall(majorName) {
+      if (this.allMajorsArray2.length == 0) {
+        return true;
+      } else {
+        var k = 0;
+        for (k = 0; k < this.allMajorsArray2.length; k++){
+          if(this.allMajorsArray2[k] == majorName){
+            return false;
+          }
+        }
+      }
+      return true;
 
-    //sumCredits() {
-    //  var totalcredits = 0;
-    //  var i = 0;
-    //  for (i = 0; i < length; i++) {
-    //    totalcredits += this.courses[i].course.credits
-    //  }
-    //  return totalcredits;
-    //}
+    };
 
-
-
-    //  testFunction() {
-    //  var options = [1, 2, 3, 4, 5, 6];
-    //  var i =0;
-    //  for (i = 0; i < options.length; i++) {
-    //    var opt = options[i];
-    //    var el = document.createElement("option");
-    //    el.textContent = opt;
-    //    el.value = opt;
-    //    document.getElementById("selectNumber").appendChild(el);
-    //  }
-    //}
-    //
   }
 
   angular.module('3601S16Lab5JsonDataProcessingApp')

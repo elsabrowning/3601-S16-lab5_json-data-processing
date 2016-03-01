@@ -3,6 +3,7 @@
 angular.module('3601S16Lab5JsonDataProcessingApp')
   .filter('studentMajor', function () {
     var checkMajor = function(input, major){
+
       if(major == input.major1){
         return true;
       } else if(major == input.major2) {
@@ -12,11 +13,24 @@ angular.module('3601S16Lab5JsonDataProcessingApp')
       }
     }
 
+    //var checkMajors = function(input, majors){
+    //  var i=0;
+    //  console.log(majors.majors);
+    //  for(i=0; i< majors.length; i++){
+    //
+    //    if(checkMajor(input, majors[i])){
+    //
+    //      return true;
+    //    }
+    //  }
+    //  return false;
+    //
+    //}
 
-    return function (input, major) {
+    return function (input, majors) {
       return input.filter(function(element) {
-        console.log(checkMajor(element, major));
-        return checkMajor(element, major);
+        //console.log(checkMajors(element, majors));
+        return checkMajor(element, majors);
         });
     };
   });

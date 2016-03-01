@@ -27,6 +27,7 @@
   <div ng-controller="MainController">
     <form name="myForm">
       <select id="selectNumber" ng-model = "main.major">
+        <option value = {{main.allArrayMaker(main.awesomeThings)}} >All</option>
         <option ng-repeat="thing in main.majorArrayMaker(main.awesomeThings)" value = {{thing}} >{{thing}}</option>
       </select>
     </form>
@@ -36,7 +37,7 @@
     <div ng-controller="MainController">
       <form name="myForm">
        <select id="selectNumber" ng-model = "main.subject">
-         <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)" value = {{thing}} >{{thing}}</option>
+         <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)" value = {{this.majors.push(thing)}} >{{thing}}</option>
         </select>
       </form>
     </div>
