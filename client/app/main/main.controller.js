@@ -9,6 +9,7 @@
       this.$http = $http;
       this.awesomeThings = [];
       this.allCoursesArray =[];
+      this.allMajorsArray =[];
       this.allSubjectArray = [];
       this.classArray = [];
       this.credits = -1;
@@ -84,6 +85,18 @@
       }
     };
 
+    majorArrayMaker(studentDataArray){
+      var i = 0;
+      for(i = 0; i < studentDataArray.length; i++){
+          if (checkMajor(studentDataArray[i].major1)) {
+            this.allMajorsArray.push(studentDataArray[i].major1);
+            if(checkMajor(studentDataArray[i].major2)){
+              this.allMajorsArray.push(studentDataArray[i].major2);
+            }
+          }
+      }
+    };
+
     linkingSubjectClass(studentDataArray) {
       var i = 0;
       var j = 0;
@@ -133,6 +146,19 @@
       return true;
     };
 
+      checkMajor(majorName) {
+        if (allMajorsArray.length == 0) {
+          return true;
+        } else {
+          var k = 0;
+          for (k = 0; k < allMajorsArray.length; k++){
+            if(allMajorsArray[k] == majorName){
+              return false;
+            }
+          }
+        }
+        return true;
+      };
 
 
     //sumCredits() {

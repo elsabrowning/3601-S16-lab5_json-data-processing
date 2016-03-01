@@ -8,9 +8,9 @@
 
   <h4 class="page-header">Order by:</h4>
 
-  <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="main.order = 'lastName'">Name</button>
-  <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="main.order = 'dateOfBirth'">Date of Birth</button>
-  <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="main.order = totalCreditsFilter">Total Credits</button>
+  <button type="button" class="btn btn-primary btn-md btn-block" ng-click="main.order = 'lastName'">Name</button>
+  <button type="button" class="btn btn-primary btn-md btn-block" ng-click="main.order = 'dateOfBirth'">Date of Birth</button>
+  <button type="button" class="btn btn-primary btn-md btn-block" ng-click="main.order = totalCreditsFilter">Total Credits</button>
 
   <h4>Class Option</h4>
   <form name="myForm">
@@ -27,7 +27,7 @@
   <div ng-controller="MainController">
     <form name="myForm">
       <select id="selectNumber" ng-model = "main.major">
-        <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)" value = {{thing}} >{{thing}}</option>
+        <option ng-repeat="thing in main.majorArrayMaker(main.awesomeThings)" value = {{thing}} >{{thing}}</option>
       </select>
     </form>
   </div>
@@ -51,9 +51,19 @@
   </div>
 
   <h4>Show Options</h4>
+  <h5>(Click to Toggle)`</h5>
   <form>
-    <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="showgpa=!showgpa">Show GPA</button>
-    <button type="button" class="btn btn-primary btn-md btn-block active" ng-click="showcredits=!showcredits">Show Credits</button>
+    <button type="button" class="btn btn-warning btn-md btn-block" ng-click="showgpa=!showgpa; showcredits=!showcredits; showgender=!showgender; showdob=!showdob; showemail=!showemail;
+    showphone=!showphone; showaddress=!showaddress; showmajors=!showmajors; showcourses=!showcourses">All</button>
+    <button type="button" class="btn btn-primary btn-md btn-block" ng-click="showgpa=!showgpa">GPA</button>
+    <button type="button" class="btn btn-primary btn-md btn-block" ng-click="showcredits=!showcredits">Credits</button>
+    <button type="button" class="btn btn-secondary btn-md btn-block" ng-click="showgender=!showgender">Gender</button>
+    <button type="button" class="btn btn-secondary btn-md btn-block" ng-click="showdob=!showdob">Date Of Birth</button>
+    <button type="button" class="btn btn-secondary btn-md btn-block" ng-click="showemail=!showemail">Email</button>
+    <button type="button" class="btn btn-secondary btn-md btn-block" ng-click="showphone=!showphone">Phone</button>
+    <button type="button" class="btn btn-secondary btn-md btn-block" ng-click="showaddress=!showaddress">Address</button>
+    <button type="button" class="btn btn-secondary btn-md btn-block" ng-click="showmajors=!showmajors">Major(s)</button>
+    <button type="button" class="btn btn-secondary btn-md btn-block" ng-click="showcourses=!showcourses">Courses</button>
   </form>
 
 
@@ -93,24 +103,33 @@
 
             </a>
             <a ng-show="collapsed">
-              Gender: {{thing.gender}}
-              </br>
-              Email: {{thing.email}}
-              </br>
-              Phone: {{thing.phone}}
-              </br>
-              Address: {{thing.address}}
-              </br>
-              Major(s): {{thing.major1}}, {{thing.major2}}
-              </br>
-              Date of Birth: {{thing.dateOfBirth}}
+              <div id="genderDiv"  ng-show="showgender">
+                Gender: {{thing.gender}}
+              </div>
+              <div id="dobDiv"  ng-show="showdob">
+                Date of Birth: {{thing.dateOfBirth}}
+              </div>
+              <div id="emailDiv"  ng-show="showemail">
+                Email: {{thing.email}}
+              </div>
+              <div id="phoneDiv"  ng-show="showphone">
+                Phone: {{thing.phone}}
+              </div>
+              <div id="addressDiv"  ng-show="showphone">
+                Address: {{thing.address}}
+              </div>
+              <div id="majorsDiv"  ng-show="showmajors">
+                Major(s): {{thing.major1}}, {{thing.major2}}
+              </div>
               <div id="gpaDiv"  ng-show="showgpa">
                 {{thing.courses | gpa}}
               </div>
-              <div id="gpaDiv"  ng-show="showcredits">
+              <div id="totalcreditsDiv"  ng-show="showcredits">
                 {{thing | totalCredits}}
               </div>
-              <div>{{thing | courseList}}</div>
+              <div id="coursesDiv"  ng-show="showcourses">
+                {{thing | courseList}}
+              </div>
 
           </a>
         </li>
