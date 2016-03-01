@@ -87,14 +87,21 @@
 
     majorArrayMaker(studentDataArray){
       var i = 0;
+      console.log("Student Data Array reached!");
       for(i = 0; i < studentDataArray.length; i++){
-          if (checkMajor(studentDataArray[i].major1)) {
-            this.allMajorsArray.push(studentDataArray[i].major1);
-            if(checkMajor(studentDataArray[i].major2)){
-              this.allMajorsArray.push(studentDataArray[i].major2);
-            }
-          }
+
+        if (this.checkMajor(studentDataArray[i].major1)) {
+          this.allMajorsArray.push(studentDataArray[i].major1);
+          console.log(this.allMajorsArray);
+        }
+
+        if (this.checkMajor(studentDataArray[i].major2)) {
+          this.allMajorsArray.push(studentDataArray[i].major2);
+          console.log(this.allMajorsArray);
+        }
       }
+      return this.allMajorsArray;
+      console.log(this.allMajorsArray);
     };
 
     linkingSubjectClass(studentDataArray) {
@@ -146,19 +153,22 @@
       return true;
     };
 
-      checkMajor(majorName) {
-        if (allMajorsArray.length == 0) {
-          return true;
-        } else {
-          var k = 0;
-          for (k = 0; k < allMajorsArray.length; k++){
-            if(allMajorsArray[k] == majorName){
-              return false;
-            }
+    checkMajor(majorName) {
+      if (this.allMajorsArray.length == 0) {
+        return true;
+      } else {
+        var k = 0;
+        for (k = 0; k < this.allMajorsArray.length; k++){
+          if(majorName == null){
+            return false;
+          } else if(this.allMajorsArray[k] == majorName){
+            return false;
           }
         }
-        return true;
-      };
+      }
+      return true;
+
+    };
 
 
     //sumCredits() {
@@ -172,18 +182,18 @@
 
 
 
-  //  testFunction() {
-  //  var options = [1, 2, 3, 4, 5, 6];
-  //  var i =0;
-  //  for (i = 0; i < options.length; i++) {
-  //    var opt = options[i];
-  //    var el = document.createElement("option");
-  //    el.textContent = opt;
-  //    el.value = opt;
-  //    document.getElementById("selectNumber").appendChild(el);
-  //  }
-  //}
-  //
+    //  testFunction() {
+    //  var options = [1, 2, 3, 4, 5, 6];
+    //  var i =0;
+    //  for (i = 0; i < options.length; i++) {
+    //    var opt = options[i];
+    //    var el = document.createElement("option");
+    //    el.textContent = opt;
+    //    el.value = opt;
+    //    document.getElementById("selectNumber").appendChild(el);
+    //  }
+    //}
+    //
   }
 
   angular.module('3601S16Lab5JsonDataProcessingApp')
