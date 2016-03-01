@@ -16,7 +16,8 @@
       this.overallArray = [];
       this.order = 'lastName';
       this.showGPA = 'none';
-      this.subject = null
+      this.subject = null;
+      this.major = null;
 
       $scope.totalCreditsFilter = $filter('totalCredits');
 
