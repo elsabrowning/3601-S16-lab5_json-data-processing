@@ -11,9 +11,9 @@ describe('Filter: creditCounter', function () {
     creditCounter = $filter('creditCounter');
   }));
 
-  it('should return the input prefixed with "creditCounter filter:"', function () {
-    var text = 'angularjs';
-    expect(creditCounter(text)).toBe('creditCounter filter: ' + text);
-  });
+  //it('should return the input prefixed with "creditCounter filter:"', function () {
+  //  var text = 'angularjs';
+  //  expect(creditCounter(text)).toBe('creditCounter filter: ' + text);
+  //});
 
 });

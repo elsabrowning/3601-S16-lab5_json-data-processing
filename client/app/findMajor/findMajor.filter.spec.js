@@ -11,9 +11,9 @@ describe('Filter: findMajor', function () {
     findMajor = $filter('findMajor');
   }));
 
-  it('should return the input prefixed with "findMajor filter:"', function () {
-    var text = 'angularjs';
-    expect(findMajor(text)).toBe('findMajor filter: ' + text);
-  });
+  //it('should return the input prefixed with "findMajor filter:"', function () {
+  //  var text = 'angularjs';
+  //  expect(findMajor(text)).toBe('findMajor filter: ' + text);
+  //});
 
 });

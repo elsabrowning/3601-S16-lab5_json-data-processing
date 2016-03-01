@@ -11,9 +11,9 @@ describe('Filter: gpa', function () {
     gpa = $filter('gpa');
   }));
 
-  it('should return the input prefixed with "gpa filter:"', function () {
-    var text = 'angularjs';
-    expect(gpa(text)).toBe('gpa filter: ' + text);
-  });
+  //it('should return the input prefixed with "gpa filter:"', function () {
+  //  var text = 'angularjs';
+  //  expect(gpa(text)).toBe('gpa filter: ' + text);
+  //});
 
 });
