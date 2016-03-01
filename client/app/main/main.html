@@ -23,11 +23,20 @@
     </select>
   </form>
 
+  <h4>Major</h4>
+  <div ng-controller="MainController">
+    <form name="myForm">
+      <select id="selectNumber" ng-model = "main.major">
+        <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)" value = {{thing}} >{{thing}}</option>
+      </select>
+    </form>
+  </div>
+
   <h4>Subject</h4>
     <div ng-controller="MainController">
       <form name="myForm">
        <select id="selectNumber" ng-model = "main.subject">
-         <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)" value = {{thing}}>{{thing}}</option>
+         <option ng-repeat="thing in main.subjectArrayMaker(main.awesomeThings)" value = {{thing}} >{{thing}}</option>
         </select>
       </form>
     </div>
@@ -69,7 +78,7 @@
     <div class="col-md-12">
       <h1 class="page-header">Students:</h1>
       <div ng-app id="ng-app">
-      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | orderBy: main.order | creditCounter: main.credits">
+      <ul class="nav nav-tabs nav-stacked" ng-repeat="thing in main.awesomeThings | orderBy: main.order | creditCounter: main.credits | studentMajor: main.major">
         <li>
             <a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed">
               {{thing.lastName}}, {{thing.firstName}}
